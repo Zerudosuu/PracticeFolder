@@ -25,6 +25,7 @@ const SYMBOL_VALUES = {
   D: 2,
 };
 
+//the first step on gettting the deposit amount of the player;
 const Deposit = () => {
   while (true) {
     const depositAmount = prompt("Enter deposit amount: ");
@@ -36,6 +37,7 @@ const Deposit = () => {
   }
 };
 
+//second is getting the lines that she/he's betting to
 const getNumberOfLines = () => {
   while (true) {
     const lines = prompt("Enter a number of lines to bet on (1-3): ");
@@ -46,6 +48,8 @@ const getNumberOfLines = () => {
     else return numberOfLines;
   }
 };
+//this will calculate the number of lines and balance will divided by the number of lines
+//so that it checks whether the balance is enough or not.
 
 const getBetAmount = (Balance, lines) => {
   while (true) {
@@ -58,36 +62,46 @@ const getBetAmount = (Balance, lines) => {
   }
 };
 
+//this method handles simulation of the reels on
 const spin = () => {
-  const symbols = [];
+  const symbols = []; // declaring symbols to act as container of the new values
+  //Object.entries(SYMBOL_COUNT)) means that it is accesing the objects and its value
   for (const [symbol, count] of Object.entries(SYMBOL_COUNT)) {
-    for (let i = 0; i < count; i++) {
-      symbols.push(symbol);
+    // const [symbol, count] means destructiring, symbol is the value and the count is the value of keys
+    for (
+      let i = 0;
+      i < count;
+      i++ //count is the number and values of the keys in the array object; so the loop
+    ) {
+      symbols.push(symbol); //every symbol will be push on the array depending on the count, like A:2 it will push two A
     }
   }
 
-  const reels = [];
+  const reels = []; // reels are the container of the columns that will act as reels for slot machine
 
   for (let i = 0; i < COLS; i++) {
-    reels.push([]);
-    const reelSymbols = [...symbols];
+    // COLS = 3 therefore, in every array there are three elements inside;
+    reels.push([]); // for it to be dynamic, we pushed container of the array, since the COLS = 3 it will push 3 of it.
+    const reelSymbols = [...symbols]; // we used spread operator for the reelSymbols to copy the symbols.
 
     for (let j = 0; j < ROWS; j++) {
-      const randomIndex = Math.floor(Math.random() * reelSymbols.length);
-      const selectedSymbol = reelSymbols[randomIndex];
-      reels[i].push(selectedSymbol);
-      reelSymbols.splice(randomIndex, 1);
+      // Rows is equal to 3
+      const randomIndex = Math.floor(Math.random() * reelSymbols.length); //reelsymbol.length is equal to 20 elements since we spread the symbols to it and we want to generate a random number from it
+      const selectedSymbol = reelSymbols[randomIndex]; //selected symbol is equal to the reelsymbol[and the random index that was generate]
+      reels[i].push(selectedSymbol); // in every reels that we generate, since we first push the [] with reels[i] and the index is one, means accessing the first element of the array and pushins the next element
+      reelSymbols.splice(randomIndex, 1); // after that we remove the selected random symbol on symbols so that it wont be selected again.
     }
   }
-  return reels;
+  return reels; // this method and loops will run until the new array and elements are created
 };
 
 const transposeArray = (reels) => {
-  const rows = [];
+  // yay!! I did this I transpose the array
+  const rows = []; // declaring this again so that we can store the new array
   for (let i = 0; i < COLS; i++) {
-    rows.push([]);
+    rows.push([]); //pushing every rotation a new array container
     for (let j = 0; j < ROWS; j++) {
-      rows[i].push(reels[j][i]);
+      rows[i].push(reels[j][i]); //switching the element so that it can be transposed
     }
   }
 
