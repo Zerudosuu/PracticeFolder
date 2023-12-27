@@ -1,0 +1,25 @@
+.navbarWrapper {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+
+  h1 {
+    font-size: var(--size-4xl);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--clr-light);
+  }
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 100px;
+}
