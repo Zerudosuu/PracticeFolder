@@ -1,0 +1,25 @@
+.navCointainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  gap: 20px;
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+.Cart__productContainer {
+  border: 1px solid white;
+  width: 20em;
+  height: 40em;
+  position: absolute;
+  right: 8%;
+}

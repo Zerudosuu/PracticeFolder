@@ -1,4 +1,5 @@
 const MovieCard = ({ Movie1 }) => {
+  console.log(Movie1);
   return (
     <div className="movie">
       <div>

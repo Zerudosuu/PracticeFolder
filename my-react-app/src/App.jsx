@@ -19,8 +19,6 @@ function App() {
     searchMovies("Your Name");
   }, []);
 
-  console.log(movies[0]);
-
   return (
     <div className="app">
       <h1>MovieLand</h1>
