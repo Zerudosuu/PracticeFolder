@@ -22,7 +22,10 @@ const NavBar = () => {
 
         <ul>
           <li>Account</li>
-          <li onClick={toggleCart}> Cart </li>
+          <li>
+            {" "}
+            <button onClick={toggleCart}> Cart </button>{" "}
+          </li>
         </ul>
       </nav>
 
