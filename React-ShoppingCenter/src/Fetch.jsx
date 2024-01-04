@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ProductCard from "./ProductCard";
 
 const SHOPPING_URL = "https://api.escuelajs.co/api/v1/products";
 
@@ -15,7 +16,7 @@ const FetchData = () => {
     fetchData();
   }, []);
 
-  return <div>Different ways to fetch Data</div>;
+  <ProductCard data={data} />;
 };
 
 export default FetchData;

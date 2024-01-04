@@ -1,11 +1,13 @@
 import NavBar from "./Navbar";
-// import FetchData from "./Fetch";
 import Hero from "./Hero";
+import ProductCard from "./ProductCard";
+
 function App() {
   return (
     <>
       <NavBar />
       <Hero />
+      <ProductCard />
     </>
   );
 }
