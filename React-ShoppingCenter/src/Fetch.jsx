@@ -1,12 +1,18 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const SHOPPING_URL = "https://api.escuelajs.co/api/v1/products";
 
 const FetchData = () => {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    fetch(SHOPPING_URL)
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+    const fetchData = async () => {
+      const response = await fetch(SHOPPING_URL);
+      const data = await response.json();
+      setData(data);
+    };
+
+    fetchData();
   }, []);
 
   return <div>Different ways to fetch Data</div>;

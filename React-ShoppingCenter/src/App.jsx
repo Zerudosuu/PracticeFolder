@@ -1,10 +1,11 @@
 import NavBar from "./Navbar";
-import FetchData from "./Fetch";
+// import FetchData from "./Fetch";
+import Hero from "./Hero";
 function App() {
-  FetchData();
   return (
     <>
       <NavBar />
+      <Hero />
     </>
   );
 }

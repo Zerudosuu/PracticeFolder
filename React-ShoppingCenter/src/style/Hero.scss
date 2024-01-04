@@ -1,0 +1,29 @@
+.Hero {
+  border: 1px solid white;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__container {
+  border: 1px solid red;
+  height: 80%;
+  display: flex;
+  gap: 10px;
+}
+
+.hero__sideSelection {
+  border: 1px white solid;
+  flex: 0.25;
+}
+
+.hero__carousel {
+  border: 1px pink solid;
+  flex: 1;
+
+  button {
+    border: 1px solid white;
+    padding: 10px;
+  }
+}
