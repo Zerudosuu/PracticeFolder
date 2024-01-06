@@ -1,4 +1,4 @@
-import "./style/Hero.scss";
+import "../style/Hero.scss";
 import { useState } from "react";
 
 const HeroSection = () => {

@@ -1,6 +1,7 @@
 import NavBar from "./Navbar";
 import Hero from "./Hero";
 import ProductCard from "./ProductCard";
+import LoginComponent from "./LoginPage";
 
 import { useState, useEffect } from "react";
 
@@ -33,6 +34,8 @@ function App() {
           <h2>No product Found</h2>
         </div>
       )}
+
+      <LoginComponent />
     </>
   );
 }
