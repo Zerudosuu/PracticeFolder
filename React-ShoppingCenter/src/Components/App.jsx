@@ -1,12 +1,14 @@
+// App component
+import { useState, useEffect } from "react";
 import NavBar from "./Navbar";
 import Hero from "./Hero";
 import ProductCard from "./ProductCard";
 import LoginComponent from "./LoginPage";
-
-import { useState, useEffect } from "react";
+import CheckOutProducts from "./CheckOutProduct";
 
 function App() {
   const [data, setData] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +20,10 @@ function App() {
     fetchData();
   }, []);
 
+  const handleBuyClick = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
+
   return (
     <>
       <NavBar />
@@ -26,7 +32,11 @@ function App() {
       {data.length > 0 ? (
         <div className="ProductWrapper container">
           {data.map((product) => (
-            <ProductCard key={product.id} data={product} />
+            <ProductCard
+              key={product.id}
+              data={product}
+              onBuyClick={handleBuyClick}
+            />
           ))}
         </div>
       ) : (
@@ -36,6 +46,7 @@ function App() {
       )}
 
       <LoginComponent />
+      <CheckOutProducts cart={cart} />
     </>
   );
 }
