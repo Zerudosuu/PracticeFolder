@@ -2,11 +2,24 @@ import "../style/NavBar.scss";
 
 import { useState } from "react";
 
-const NavBar = () => {
+const NavBar = ({ cart }) => {
   const [isCartVisible, setCartVisible] = useState(false);
 
   const toggleCart = () => {
     setCartVisible(!isCartVisible);
+  };
+
+  const CartItem = () => {
+    return (
+      <div>
+        <h2>Shopping Cart</h2>
+        <ul>
+          {cart.map((product, index) => (
+            <li key={index}>{product.title}</li>
+          ))}
+        </ul>
+      </div>
+    );
   };
 
   return (
@@ -31,7 +44,7 @@ const NavBar = () => {
 
       {isCartVisible && (
         <div className="Cart__productContainer">
-          <h2>Add to Cart Section</h2>
+          <CartItem />
         </div>
       )}
     </>

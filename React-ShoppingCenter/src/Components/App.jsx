@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar cart={cart} />
       <Hero />
 
       {data.length > 0 ? (
@@ -46,7 +46,6 @@ function App() {
       )}
 
       <LoginComponent />
-      <CheckOutProducts cart={cart} />
     </>
   );
 }
