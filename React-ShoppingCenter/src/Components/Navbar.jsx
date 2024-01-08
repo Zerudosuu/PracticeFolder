@@ -11,17 +11,18 @@ const NavBar = ({ cart }) => {
 
   const CartItem = () => {
     return (
-      <div>
+      <div className="AddToCartContainer">
         <h2>Shopping Cart</h2>
         <ul>
           {cart.map((product, index) => (
-            <li key={index}>{product.title}</li>
+            <img key={product.id} src={product.images[0]} />
           ))}
         </ul>
       </div>
     );
   };
 
+  console.log(cart);
   return (
     <>
       <nav className="navCointainer container">

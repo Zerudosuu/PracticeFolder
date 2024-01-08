@@ -26,3 +26,12 @@ li {
   right: 8%;
   top: 5%;
 }
+.AddToCartContainer ul {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
