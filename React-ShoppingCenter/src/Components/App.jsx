@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://api.escuelajs.co/api/v1/products");
+      const response = await fetch("https://fakestoreapi.com/products/");
       const data = await response.json();
       setData(data);
     };
@@ -24,6 +24,7 @@ function App() {
     setCart((prevCart) => [...prevCart, product]);
   };
 
+  console.log(data);
   return (
     <>
       <NavBar cart={cart} />

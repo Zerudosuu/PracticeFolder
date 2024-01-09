@@ -15,14 +15,14 @@ const NavBar = ({ cart }) => {
         <h2>Shopping Cart</h2>
         <ul>
           {cart.map((product, index) => (
-            <img key={product.id} src={product.images[0]} />
+            <img key={product.id} src={product.image} />
           ))}
         </ul>
       </div>
     );
   };
 
-  console.log(cart);
+  console.log("this is ", cart);
   return (
     <>
       <nav className="navCointainer container">
