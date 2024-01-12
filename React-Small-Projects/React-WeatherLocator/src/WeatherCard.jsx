@@ -8,21 +8,22 @@ const WeatherCard = (props) => {
     // Handle the case when weather data is not available
     return <div>No weather data available</div>;
   }
-
   let WeatherImage =
     weather.weather[0].main === "Clouds"
-      ? "/images/clouds.png"
+      ? "../public/clouds.png"
       : weather.weather[0].main === "Clear"
-      ? "/images/clear.png"
+      ? "../public/clear.png"
       : weather.weather[0].main === "Rain"
-      ? "/images/rain.png"
+      ? "../public/rain.png"
       : weather.weather[0].main === "Drizzle"
-      ? "/images/drizzle.png"
+      ? "../public/drizzle.png"
       : weather.weather[0].main === "Mist"
-      ? "/images/mist.png"
+      ? "../public/mist.png"
       : weather.weather[0].main === "Snow"
-      ? "/images/snow.png"
+      ? "../public/snow.png"
       : "/images/default.png";
+
+  console.log(WeatherImage);
 
   return (
     <div className="card">
@@ -57,14 +58,18 @@ const WeatherCard = (props) => {
         <h2 className="city">{props.data.name || "N/A"}</h2>
         <div className="details">
           <div className="col">
-            <img src={WeatherImage} alt="" />
+            <img src="../public/humidity.png" alt="" />
             <div>
               <p className="humidity">{props.data.main?.humidity || "N/A"}</p>
               <p>Humidity</p>
             </div>
           </div>
           <div className="col">
-            <img src="public/images/wind.png" alt="" />
+            <img
+              src="../public/wind.png
+            "
+              alt=""
+            />
             <div>
               <p className="wind">{`${
                 props.data.wind?.speed || "N/A"
