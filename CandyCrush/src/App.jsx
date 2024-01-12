@@ -21,6 +21,7 @@ function App() {
     createboardGame();
   });
 
+  console.log(currentColorArrangement);
   return <></>;
 }
 
