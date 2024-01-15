@@ -82,9 +82,28 @@
 
     .sidebar {
       flex: 1;
-      border-right: 1px solid gray;
-      box-shadow: 10px 0 10px -5px rgba(0, 0, 0, 0.6);
+
       background-color: #5d5b8d;
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background-color: #2f2d52;
+        height: 50px;
+        color: #ddddf7;
+
+        .logo {
+          font-weight: bold;
+        }
+
+        .user {
+          display: flex;
+          gap: 10px;
+        }
+      }
     }
 
     .chat {
