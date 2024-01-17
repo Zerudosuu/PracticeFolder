@@ -1,3 +1,9 @@
+import { Message } from "./Message";
+
 export const Messages = () => {
-  return <div>Messages</div>;
+  return (
+    <div className="messages">
+      <Message />
+    </div>
+  );
 };

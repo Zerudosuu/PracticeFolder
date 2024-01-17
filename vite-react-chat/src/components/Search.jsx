@@ -2,7 +2,7 @@ export const Search = () => {
   return (
     <div className="search">
       <div className="searchForm">
-        <input type="text" placeholder="find a user" />
+        <input type="text" placeholder="Find a user" />
       </div>
       <div className="userChat">
         <img
