@@ -1,6 +1,6 @@
 export const Login = () => {
   return (
-    <div className="formCointainer">
+    <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">Ronald Chat</span>
         <span className="title">Login</span>

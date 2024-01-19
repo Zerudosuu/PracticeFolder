@@ -3,9 +3,14 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage } from "../firebase";
 import { useState } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [err, setErr] = useState(false);
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,11 +30,25 @@ export const Register = () => {
           setErr(true);
         },
         () => {
+          console.log(res.user);
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
             });
+
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              email,
+              photoURL: downloadURL,
+            });
+
+            await setDoc(doc(db, "userChats", res.user.uid), {});
+
+            console.log("Navigating to home page...");
+
+            navigate("/");
           });
         }
       );
@@ -39,7 +58,7 @@ export const Register = () => {
   };
 
   return (
-    <div className="formCointainer">
+    <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">Ronald Chat</span>
         <span className="title">Register</span>

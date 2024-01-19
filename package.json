@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "scss": "^0.2.4"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.21.3"
   }
 }
