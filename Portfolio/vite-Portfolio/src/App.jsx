@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className=" h-screen bg-red-200 h-auto">
+    <div className="h-auto bg-gray-900  text-white">
       <Navbar />
       <Main />
       <Footer />

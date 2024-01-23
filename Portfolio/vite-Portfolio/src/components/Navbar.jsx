@@ -5,7 +5,7 @@ const Navbar = () => {
         <a href="#" className="text-2xl text-pink-900 ">
           Logo
         </a>
-        <ul className="flex gap-10 text-xl">
+        <ul className="flex gap-10 text-xl cursor-pointer ">
           <li>About</li>
           <li>Home</li>
           <li>Contact Us</li>
