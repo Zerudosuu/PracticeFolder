@@ -3,7 +3,7 @@ import Service from "./components/Service";
 
 const App = () => {
   return (
-    <div>
+    <div className="h-auto bg-[#15151e] overflow-hidden">
       <Service />
     </div>
   );
