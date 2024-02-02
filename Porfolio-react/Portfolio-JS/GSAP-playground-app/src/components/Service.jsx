@@ -1,103 +1,107 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Service = () => {
   const comp = useRef(null);
-  const lenisRef = useRef(null);
-
-  useGSAP(
-    () => {
-      gsap.to("#box", {
-        xPercent: "+=300",
-        duration: 1,
-        scrollTrigger: {
-          trigger: comp.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-          pin: true,
-          pinSpacing: false,
-          markers: true,
-        },
-      });
-    },
-
-    { scope: comp }
-  );
-  useLenis(({ scroll }) => {
-    console.log(scroll);
-  });
 
   return (
-    <ReactLenis root>
-      <div className="h-[100vh]"></div>
-      <div
-        ref={comp}
-        className="relative h-[50vh] bg-slate-200 flex items-center w-screen pl-10"
-        id="wrapper"
-      >
-        <div
-          id="box"
-          className="absolute -left-100 border border-solid border-1 border-black w-[300px] h-[300px] flex items-center justify-center text-[100px]"
-        >
-          2
+    <>
+      <div className="wrapper">
+        <div className="container scrollx">
+          <svg
+            viewBox="0 0 900 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute top-32 left-20 w-1/2"
+          >
+            <path
+              d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
+              fill="#D9D9D9"
+            />
+            <mask
+              id="mask0_0_1"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="900"
+              height="10"
+            >
+              <path
+                d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
+                fill="#D9D9D9"
+              />
+            </mask>
+            <g mask="url(#mask0_0_1)">
+              <rect className="mask" y="-49" height="99" fill="black" />
+            </g>
+          </svg>
+          <section className="sec1 pin">
+            <span className="text-lg">Advanced</span>
+            <h1 className="text-3xl">Signify Elegance</h1>
+
+            <div className="col">
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
+                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
+                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
+                risus amet urna. Urna egestas lorem.
+              </p>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
+                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
+                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
+                risus amet urna. Urna egestas lorem.
+              </p>
+            </div>
+          </section>
+          <section className="sec2 pin">
+            <span className="anim text-lg">Advanced</span>
+            <h1 className="anim text-3xl">Signify Elegance</h1>
+
+            <div className="col anim">
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
+                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
+                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
+                risus amet urna. Urna egestas lorem.
+              </p>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
+                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
+                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
+                risus amet urna. Urna egestas lorem.
+              </p>
+            </div>
+          </section>
+          <section className="sec3 pin">
+            <span className="anim text-lg">Advanced</span>
+            <h1 className="anim text-3xl">Signify Elegance</h1>
+
+            <div className="col anim">
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
+                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
+                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
+                risus amet urna. Urna egestas lorem.
+              </p>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
+                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
+                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
+                risus amet urna. Urna egestas lorem.
+              </p>
+            </div>
+          </section>
         </div>
       </div>
-      <div
-        id="wrapper2"
-        className="h-[100vh] flex items-center justify-end pr-10"
-      >
-        <div
-          id="box2"
-          className="border border-solid border-1 border-white w-[300px] h-[300px] flex items-center justify-center text-[100px] text-white"
-        >
-          3
-        </div>
-      </div>
-    </ReactLenis>
+
+      <section className="h-screen bg-lightblue"></section>
+    </>
   );
 };
 
-// useEffect(() => {
-//   let ctx = gsap.context(() => {
-//     const tl = gsap.timeline();
-
-//     tl.to("#box", {
-//       duration: 0.3,
-//       x: "+=600", // Move the box to the right by 200 pixels
-//       rotate: 360,
-//       marker: true,
-//       scrollTrigger: {
-//         trigger: "#wrapper",
-//         start: "top center",
-//         end: "bottom center",
-//         scrub: 1,
-//         markers: true,
-//         pin: true,
-//       },
-//     });
-
-//     tl.to("#box2", {
-//       x: "-=600",
-//       rotate: 360,
-//       marker: true,
-//       scrollTrigger: {
-//         trigger: "#wrapper2",
-//         start: "top center",
-//         end: "bottom center",
-//         scrub: 1,
-//         markers: true,
-//         pin: true,
-//         pinSpacer: false,
-//       },
-//     });
-//   }, comp);
-
-//   return () => ctx.revert();
-// }, []);
 export default Service;
