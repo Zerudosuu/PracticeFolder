@@ -1,0 +1,15 @@
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.AssemblyInfoInputs.cache
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.AssemblyInfo.cs
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.csproj.CoreCompileInputs.cache
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.sourcelink.json
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\bin\Debug\net8.0\MyConsoleApp.exe
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\bin\Debug\net8.0\MyConsoleApp.deps.json
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\bin\Debug\net8.0\MyConsoleApp.runtimeconfig.json
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\bin\Debug\net8.0\MyConsoleApp.dll
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\bin\Debug\net8.0\MyConsoleApp.pdb
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.dll
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\refint\MyConsoleApp.dll
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.pdb
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\MyConsoleApp.genruntimeconfig.cache
+F:\SCHOOLSTUFF\PracticeJs\PracticeFolder\Porfolio-react\DOTNET\myConsoleApp\obj\Debug\net8.0\ref\MyConsoleApp.dll
