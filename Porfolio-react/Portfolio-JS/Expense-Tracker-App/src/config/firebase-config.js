@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth"; // authentication provider,
+import { getFirestore } from "firebase/firestore"; // to connect to Firestore
+
+/**
+ * Firebase config
+ */
 const firebaseConfig = {
   apiKey: "AIzaSyCeRvh3Zdo6IpagV05GDA4pZLAjjPb3P5A",
   authDomain: "expense-tracker-6ef6e.firebaseapp.com",
@@ -10,8 +15,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const provider = new GoogleAuthProvider();
+export const auth = getAuth(app); /// connnect the auth to the app
+export const provider = new GoogleAuthProvider(); /// sign in with google as provider
+export const db = getFirestore(app); // connrcting to database
 
 //firebase login
 //firebase init

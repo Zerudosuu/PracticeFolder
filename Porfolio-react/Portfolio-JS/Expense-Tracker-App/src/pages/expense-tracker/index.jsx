@@ -1,4 +1,25 @@
+import { useState } from "react";
+import { useAddTransaction } from "../../hooks/useAddTransaction";
+
 const ExpenseTracker = () => {
+  const { addTransaction } = useAddTransaction();
+  const [description, setDiscrptions] = useState("");
+  const [transactionAmount, setTransactionAmount] = useState(0);
+  const [transactionType, setTransactionType] = useState("expense");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addTransaction({
+      Description: description,
+      transactionAmount: parseFloat(transactionAmount),
+      transactionType: transactionType,
+    });
+
+    setDiscrptions("");
+    setTransactionAmount(0);
+    setTransactionType("expense");
+  };
+
   return (
     <>
       <div className="expense-tracker">
@@ -20,13 +41,35 @@ const ExpenseTracker = () => {
             </div>
           </div>
 
-          <form action="" className="add-transaction">
-            <input type="text" placeholder="Description" required />
-            <input type="number" placeholder="Amount" required />
+          <form action="" className="add-transaction" onSubmit={onSubmit}>
+            <input
+              type="text"
+              placeholder="Description"
+              required
+              onChange={(e) => setDiscrptions(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="Amount"
+              required
+              onChange={(e) => setTransactionAmount(e.target.value)}
+            />
             <label htmlFor="expense">Expense</label>
-            <input type="radio" id="expense" value="expense" />
+            <input
+              type="radio"
+              id="expense"
+              value="expense"
+              checked={transactionType === "expense"}
+              onChange={(e) => setTransactionType(e.target.value)}
+            />
             <label htmlFor="income">Income</label>
-            <input type="radio" id="income" value="income" />
+            <input
+              type="radio"
+              id="income"
+              value="income"
+              checked={transactionType === "income"}
+              onChange={(e) => setTransactionType(e.target.value)}
+            />
 
             <button type="submit"> Add Transaction</button>
           </form>
