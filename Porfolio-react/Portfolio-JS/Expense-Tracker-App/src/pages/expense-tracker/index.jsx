@@ -3,21 +3,18 @@ import { useAddTransaction } from "../../hooks/useAddTransaction";
 
 const ExpenseTracker = () => {
   const { addTransaction } = useAddTransaction();
-  const [description, setDiscrptions] = useState("");
+
+  const [Description, setDiscrptions] = useState("");
   const [transactionAmount, setTransactionAmount] = useState(0);
   const [transactionType, setTransactionType] = useState("expense");
 
   const onSubmit = (e) => {
     e.preventDefault();
     addTransaction({
-      Description: description,
-      transactionAmount: parseFloat(transactionAmount),
-      transactionType: transactionType,
+      Description,
+      transactionAmount,
+      transactionType,
     });
-
-    setDiscrptions("");
-    setTransactionAmount(0);
-    setTransactionType("expense");
   };
 
   return (

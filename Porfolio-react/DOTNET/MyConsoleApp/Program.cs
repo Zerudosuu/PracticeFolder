@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 
 class Program
 {
-    public static void Main()
-    {
-        int totalOdd = 0;
-        int totalEven = 0;
+    private int total;
 
+    public void Run()
+    {
         List<int> creatureOdd = new List<int>();
         List<int> creatureEven = new List<int>();
 
@@ -17,40 +17,40 @@ class Program
         Console.WriteLine($"Please enter their numbers, maximum of {numberOfCreatures}:");
         for (int i = 1; i <= numberOfCreatures; i++)
         {
-            int Number = Convert.ToInt32(Console.ReadLine());
-
-            if (Number % 2 != 0)
-            {
-                creatureOdd.Add(Number);
-            }
-            else
-            {
-                creatureEven.Add(Number);
-            }
+            int number = Convert.ToInt32(Console.ReadLine());
+            (number % 2 == 0 ? creatureEven : creatureOdd).Add(number);
         }
 
-        // Sorting sort = new Sorting();
+        creatureEven.Sort();
+        creatureOdd.Sort();
 
-        // sort.SortElement(creatureEven);
-        // sort.SortElement(creatureOdd);
+        Sort_Total(creatureEven);
+        Console.WriteLine($"\nTotal of Even Creatures: {total}");
 
-        foreach (int cEven in creatureEven)
+        total = 0;
+
+        Sort_Total(creatureOdd);
+        Console.WriteLine($"\nTotal of Odd Creatures: {total}");
+    }
+
+    void Sort_Total(List<int> list)
+    {
+        foreach (int i in list)
         {
-            totalEven += cEven;
+            Console.Write(i + " ");
+            total += i;
         }
-        foreach (int cOdd in creatureOdd)
-        {
-            totalOdd += cOdd;
-        }
+    }
 
-        // sort.PrintElements(creatureEven);
-        Console.WriteLine(creatureEven.Sort())
-        Console.WriteLine($"Total of Even Creatures: {totalEven}");
-        // sort.PrintElements(creatureOdd);
-        Console.WriteLine(creatureOdd.Sort())
-        Console.WriteLine($"Total of Odd Creatures: {totalOdd}");
+    public static void Main()
+    {
+        Program prog = new Program();
+        prog.Run();
     }
 }
+
+
+
 
 // class Sorting
 // {
