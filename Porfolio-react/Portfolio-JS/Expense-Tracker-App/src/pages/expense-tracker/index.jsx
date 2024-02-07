@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { useAddTransaction } from "../../hooks/useAddTransaction";
+import { useGetTransactions } from "../../hooks/useGetTransactions";
 
 const ExpenseTracker = () => {
+  //?custom hook functions
   const { addTransaction } = useAddTransaction();
+  const { transaction } = useGetTransactions();
 
+  // ? on this code, we use useState to the values, on change for it to be passed to the addTransaction using useaddTransaction custom hook with properties of { Description, transactionAmount, and transactionType}
   const [Description, setDiscrptions] = useState("");
   const [transactionAmount, setTransactionAmount] = useState(0);
   const [transactionType, setTransactionType] = useState("expense");
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    //? calling the addTransaction here so that it will return the value to the function
     addTransaction({
       Description,
       transactionAmount,
@@ -73,8 +79,29 @@ const ExpenseTracker = () => {
         </div>
       </div>
 
+      {/*
+       ? mapping over the transaction that has been passed through custom hook 
+       ? the transaction consist of the following properties: Description, transactionAmount and type, 
+      
+      */}
+
       <div className="transactions">
         <h2>transaction</h2>
+
+        <ul>
+          {transaction.map((transaction) => {
+            const { Description, transactionAmount, transactionType } =
+              transaction;
+
+            return (
+              <li key={transaction.id}>
+                <h4>{Description}</h4>
+                <p>${transactionAmount} </p>
+                <h1>{transactionType}</h1>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
