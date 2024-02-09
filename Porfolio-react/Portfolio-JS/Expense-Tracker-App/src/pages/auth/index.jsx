@@ -1,7 +1,7 @@
 import { auth, provider } from "../../config/firebase-config"; // ? importing the auth and provider which is google from the config
 import { signInWithPopup } from "firebase/auth"; // ? this is for firebase windowsign in
 import { useNavigate } from "react-router-dom";
-
+import "./style.css";
 const Auth = () => {
   const navigate = useNavigate();
 

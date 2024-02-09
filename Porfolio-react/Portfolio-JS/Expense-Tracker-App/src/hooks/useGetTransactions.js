@@ -12,6 +12,11 @@ import { useGetUserInfo } from "./useGetUserInfo";
 export const useGetTransactions = () => {
   //? declaring transaction as useState[] because it will be a list or objects
   const [transaction, setTransactions] = useState([]);
+  const [transactiontotal, setTransactionstotal] = useState({
+    balance: 0.0,
+    income: 0.0,
+    expense: 0.0,
+  });
 
   const transactionCollectionRef = collection(db, "transactions");
   const { userID } = useGetUserInfo();
@@ -48,15 +53,32 @@ export const useGetTransactions = () => {
       */
       unsubscribe = onSnapshot(queryTransactions, (snapshot) => {
         let docs = [];
+        let income = 0;
+        let expense = 0;
+
         snapshot.forEach((doc) => {
           const data = doc.data();
           const id = doc.id;
 
           docs.push({ ...data, id });
+
+          if (data.transactionType === "expense") {
+            expense += Number(data.transactionAmount);
+          } else {
+            income += Number(data.transactionAmount);
+          }
         });
 
+        let balance = 0;
+
+        balance = income - expense;
         setTransactions(docs);
-        console.log(docs);
+
+        setTransactionstotal({
+          balance,
+          income,
+          expense,
+        });
       });
     } catch (err) {
       console.log(err);
@@ -71,5 +93,5 @@ export const useGetTransactions = () => {
   }, []);
 
   // ?  we return the transaction saved in out sate
-  return { transaction };
+  return { transaction, transactiontotal };
 };
