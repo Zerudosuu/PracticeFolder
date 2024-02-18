@@ -18,7 +18,8 @@ router.route("/").get(async (req, res) => {
   try {
     const posts = await Post.find({});
     res.status(200).json({ success: true, data: posts });
-    console.log("Cloudinary Configuration:", cloudinary.config());
+
+    console.log(posts);
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -30,15 +31,24 @@ router.route("/").get(async (req, res) => {
 router.route("/").post(async (req, res) => {
   try {
     const { name, prompt, photo } = req.body;
-    const photoUrl = await cloudinary.uploader.upload(photo);
+    const base64Data = photo.replace(/^data:image\/\w+;base64,/, "");
 
-    const newPost = await Post.create({
-      name,
-      prompt,
-      photo: photoUrl.url,
-    });
-
-    res.status(200).json({ success: true, data: newPost });
+    // Create a buffer from the base64 data
+    const buffer = Buffer.from(base64Data, "base64");
+    cloudinary.uploader
+      .upload_stream({ resource_type: "image" }, async (error, result) => {
+        if (error) {
+          console.error("Error uploading image to Cloudinary:", error);
+          return;
+        }
+        const newPost = await Post.create({
+          name,
+          prompt,
+          photo: result.url,
+        });
+        res.status(200).json({ success: true, data: newPost });
+      })
+      .end(buffer);
   } catch (err) {
     res.status(500).json({
       success: false,

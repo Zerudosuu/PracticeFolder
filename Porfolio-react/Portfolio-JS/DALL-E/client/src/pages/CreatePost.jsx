@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { preview } from "../assets";
 import { getRandomPrompt } from "../utils";
@@ -26,7 +26,7 @@ const CreatePost = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(form),
+          body: JSON.stringify({ ...form }),
         });
         const responseData = await response.json();
         console.log(responseData);
@@ -37,6 +37,7 @@ const CreatePost = () => {
       }
     }
   };
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -58,7 +59,6 @@ const CreatePost = () => {
             prompt: form.prompt,
           }),
         });
-
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64, ${data.photo}` });
       } catch (error) {
