@@ -14,6 +14,8 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
   const [searchText, setSearchText] = useState("");
+  const [searchResult, setSearchResult] = useState(null);
+  const [searchTimeOut, setSearchTimeOut] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -42,6 +44,22 @@ const Home = () => {
     fetchPost();
   }, []);
 
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeOut);
+    setSearchText(e.target.value);
+    setSearchTimeOut(
+      setTimeout(() => {
+        const searchResults = allPosts.filter(
+          (item) =>
+            item.name.toLowerCase().includes(searchText.toLowerCase()) ||
+            item.prompt.toLowerCase().includes(searchText.toLowerCase())
+        );
+
+        setSearchResult(searchResults);
+      }, 500)
+    );
+  };
+
   return (
     <section className="max-w-7xl mx-auto">
       <div>
@@ -56,7 +74,21 @@ const Home = () => {
       </div>
 
       <div className="mt-16">
-        <FormField />
+        <FormField
+          LabelName="Search posts"
+          type="text"
+          name="text"
+          placeholder="Search Posts"
+          value={searchText}
+          handleChange={handleSearchChange}
+        />
+
+        <img
+          align="right"
+          alt="coding"
+          width="400"
+          src="https://i.pinimg.com/originals/54/e3/7d/54e37d8074ebcde1d96c77d7b2a7f310.gif"
+        />
       </div>
 
       <div className="mt-10">
@@ -76,7 +108,10 @@ const Home = () => {
 
             <div className="grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 gap-3">
               {searchText ? (
-                <RenderCards data={[]} title="No search results found" />
+                <RenderCards
+                  data={searchResult}
+                  title="No search results found"
+                />
               ) : (
                 <RenderCards data={allPosts} title="No posts found" />
               )}

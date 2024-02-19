@@ -28,8 +28,11 @@ const CreatePost = () => {
           },
           body: JSON.stringify({ ...form }),
         });
-        const responseData = await response.json();
-        console.log(responseData);
+
+        if (response.ok) {
+          await response.json();
+          navigate("/");
+        }
       } catch (error) {
         alert(error);
       } finally {
